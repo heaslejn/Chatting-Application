@@ -19,3 +19,4 @@ how many points out of 20 do you deserve on this assignment:
 
 ## Discussion Questions:
 1. What does the bootstrap `display-4` class do?
+-It uses a default font-size, line-height, and font-family there are 4 different options to choose from.
