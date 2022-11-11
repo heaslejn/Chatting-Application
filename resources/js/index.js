@@ -61,14 +61,14 @@ function formatMessage(message, myNameInput){
 }
 
 function unavailable(){
-  chatBar.disabled = true;
+  document.getElementById(`chatbar`).disabled = true;
   chatBar.addEventListener(`change`, stateHandle);
 
   function stateHandle(chatBar){
     if(document.getElementById(`my-name-input`).value === ``){
-      chatBar.disabled = true;
+      document.getElementById(`chatbar`).disabled = true;
     } else {
-      chatBar.disabled = false;
+      document.getElementById(`chatbar`).disabled = false;
     }
   }
 }
