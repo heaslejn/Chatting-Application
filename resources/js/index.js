@@ -2,6 +2,7 @@ const nameInput = document.getElementById(`my-name-input`);
 const myMessage = document.getElementById(`my-message`);
 const sendButton = document.getElementById(`send-button`);
 const chatBox = document.getElementById(`chat`);
+const chatBar = document.getElementById(`chatbar`);
 
 async function updateMessages(){
   // Fetch messages
@@ -14,6 +15,7 @@ async function updateMessages(){
   let formattedMessages = ``;
   messages.forEach(message => {
     formattedMessages += formatMessage(message, nameInput.value);
+    localStorage.getItem(`my-name-input`);
   });
   chatBox.innerHTML = formattedMessages;
   updateMessages();
@@ -59,15 +61,14 @@ function formatMessage(message, myNameInput){
 }
 
 function unavailable(){
-  myMessage.disabled = true;
-  myMessage.addEventListener(`change`, stateHandle);
+  chatBar.disabled = true;
+  chatBar.addEventListener(`change`, stateHandle);
 
-  function stateHandle(myMessage){
+  function stateHandle(chatBar){
     if(document.getElementById(`my-name-input`).value === ``){
-      myMessage.disabled = true;
+      chatBar.disabled = true;
     } else {
-      myMessage.disabled = false;
-      localStorage.setItem(`nameInput`, `my-name-input`);
+      chatBar.disabled = false;
     }
   }
 }
