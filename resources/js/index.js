@@ -24,9 +24,9 @@ async function updateMessages(){
 
 const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 
-function fetchMessages(){
-  return fetch(serverURL)
-    .then(response => response.json());
+async function fetchMessages(){
+  const response = await fetch(serverURL);
+  return await response.json();
 }
 
 function formatMessage(message, myNameInput){
@@ -55,6 +55,20 @@ function formatMessage(message, myNameInput){
               </div>
           </div>
       `;
+  }
+}
+
+function unavailable(){
+  myMessage.disabled = true;
+  myMessage.addEventListener(`change`, stateHandle);
+
+  function stateHandle(myMessage){
+    if(document.getElementById(`my-name-input`).value === ``){
+      myMessage.disabled = true;
+    } else {
+      myMessage.disabled = false;
+      localStorage.setItem(`nameInput`, `my-name-input`);
+    }
   }
 }
 
