@@ -24,6 +24,15 @@ async function fetchMessages() {
 async function formatMessage(message, myNameInput) {
   const time = new Date(message.timestamp);
   const formattedTime = `${time.getHours()}:${time.getMinutes()}`;
+  const notAllowed = document.getElementById(`myNameInput`);
+  
+  sendButton.disabled = true;
+  if(nameInput.value === ``){
+    sendButton.disabled = true;
+  }else{
+    sendButton.disabled = false;
+  }
+  }
 
   if (myNameInput === message.sender){
     return `
