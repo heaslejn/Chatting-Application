@@ -57,3 +57,29 @@ function formatMessage(message, myNameInput){
       `;
   }
 }
+
+function sendMessages(username, text){
+  const newMessage = {
+    sender: username,
+    text: text,
+    timestamp: new Date()
+  };
+
+  fetch (serverURL, {
+    method: `POST`,
+    headers: {
+      'Content-Type': `application/json`
+    },
+    body: JSON.stringify(newMessage)
+
+    sendButton.addEventListener("click", function(sendButtonClickEvent) {
+      sendButtonClickEvent.preventDefault();
+
+      const sender = nameInput.value;
+      const message = myMessage.value;
+
+      sendMessages(sender, message);
+      myMessage.value = "";
+    })
+  });
+}
