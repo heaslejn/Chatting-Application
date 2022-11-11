@@ -71,15 +71,15 @@ function sendMessages(username, text){
       'Content-Type': `application/json`
     },
     body: JSON.stringify(newMessage)
-
-    sendButton.addEventListener("click", function(sendButtonClickEvent) {
-      sendButtonClickEvent.preventDefault();
-
-      const sender = nameInput.value;
-      const message = myMessage.value;
-
-      sendMessages(sender, message);
-      myMessage.value = "";
-    })
   });
 }
+    
+sendButton.addEventListener(`click`, function(sendButtonClickEvent) {
+  sendButtonClickEvent.preventDefault();
+
+  const sender = nameInput.value;
+  const message = myMessage.value;
+
+  sendMessages(sender, message);
+  myMessage.value = ``;
+});
